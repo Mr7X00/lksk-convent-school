@@ -109,11 +109,27 @@ if (process.env.PUBLIC_SITE_URL) {
   }
 }
 
+if (process.env.RENDER_EXTERNAL_URL) {
+  try {
+    const parsed = new URL(process.env.RENDER_EXTERNAL_URL);
+    if (!allowedOrigins.includes(parsed.origin)) {
+      allowedOrigins.push(parsed.origin);
+    }
+  } catch {
+    // Ignore invalid URL
+  }
+}
+
 app.use(
   cors({
     origin: (origin, callback) => {
       // Allow requests with no origin (e.g. mobile apps, curl, server-to-server, same-origin)
       if (!origin || allowedOrigins.includes(origin)) {
+        return callback(null, true);
+      }
+
+      // Automatically allow all *.onrender.com deployments
+      if (/^https?:\/\/[a-zA-Z0-9-]+\.onrender\.com$/.test(origin)) {
         return callback(null, true);
       }
 
