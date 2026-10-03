@@ -1,0 +1,16 @@
+{
+  "name": "lksk-school-frontend",
+  "version": "1.0.0",
+  "description": "Frontend for L.K.S.K Convent School",
+  "scripts": {
+    "dev": "vite",
+    "build": "vite build",
+    "preview": "vite preview"
+  },
+  "devDependencies": {
+    "autoprefixer": "^10.4.20",
+    "postcss": "^8.5.1",
+    "tailwindcss": "^3.4.17",
+    "vite": "^6.0.11"
+  }
+}

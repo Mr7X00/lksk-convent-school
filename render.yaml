@@ -1,0 +1,26 @@
+services:
+  - type: web
+    name: lksk-convent-school
+    runtime: node
+    plan: free
+    region: singapore # Closest to India / South Asia
+    buildCommand: npm run build
+    startCommand: npm start
+    autoDeploy: true
+    envVars:
+      - key: NODE_ENV
+        value: production
+      - key: PORT
+        value: "10000"
+      - key: TRUST_PROXY
+        value: "1"
+      - key: JWT_SECRET
+        generateValue: true
+      - key: MONGODB_URI
+        sync: false # Set this in Render Dashboard (e.g. MongoDB Atlas connection string)
+      - key: ADMIN_INITIAL_PASSWORD
+        sync: false
+      - key: PUBLIC_SITE_URL
+        sync: false # Set to your https://lksk-convent-school.onrender.com
+      - key: CLIENT_ORIGIN
+        sync: false # Set to your https://lksk-convent-school.onrender.com

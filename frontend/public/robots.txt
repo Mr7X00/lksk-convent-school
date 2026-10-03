@@ -1,0 +1,8 @@
+# Robots.txt for L.K.S.K Convent School
+# Panditpur, Sohawal, Ayodhya, Uttar Pradesh — 224188
+User-agent: *
+Allow: /
+Disallow: /admin/
+Disallow: /api/
+
+Sitemap: /sitemap.xml

@@ -1,0 +1,110 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="360" height="360" viewBox="0 0 360 360" fill="none" stroke="#ffffff" stroke-width="0.85" stroke-linecap="round" stroke-linejoin="round" opacity="0.06">
+  <!-- Open Book -->
+  <path d="M20 32 Q35 27 50 32 Q65 27 80 32 V52 Q65 47 50 52 Q35 47 20 52 Z" />
+  <path d="M50 32 V52" />
+
+  <!-- Graduation Cap -->
+  <polygon points="120,28 150,18 180,28 150,38" />
+  <path d="M130 33 V46 Q150 54 170 46 V33" />
+  <path d="M175 27 V44" />
+  <circle cx="175" cy="46" r="1.5" fill="#ffffff" />
+
+  <!-- Pencil -->
+  <path d="M222 18 L244 40 L237 47 L215 25 Z" />
+  <path d="M215 25 L207 20 L222 18" />
+  <path d="M237 47 L241 51" />
+
+  <!-- Atom Model -->
+  <ellipse cx="305" cy="35" rx="16" ry="6" transform="rotate(-30 305 35)" />
+  <ellipse cx="305" cy="35" rx="16" ry="6" transform="rotate(30 305 35)" />
+  <ellipse cx="305" cy="35" rx="16" ry="6" transform="rotate(90 305 35)" />
+  <circle cx="305" cy="35" r="2" fill="#ffffff" />
+
+  <!-- Microscope -->
+  <path d="M35 115 H65" />
+  <path d="M50 115 V95" />
+  <path d="M42 90 Q50 72 65 80 Q72 88 62 100" />
+  <path d="M57 72 L72 87" />
+  <path d="M64 67 L79 82" />
+
+  <!-- Drafting Compasses -->
+  <path d="M125 118 L140 78 L155 118" />
+  <path d="M132 98 H148" />
+  <circle cx="140" cy="76" r="2.5" />
+
+  <!-- Chemistry Beaker / Flask -->
+  <path d="M218 78 H236" />
+  <path d="M224 78 V92 L208 116 H246 L230 92 V78" />
+  <path d="M215 106 H239" stroke-dasharray="3 3" />
+
+  <!-- Ruler with measurement marks -->
+  <g transform="rotate(22 305 95)">
+    <rect x="278" y="87" width="54" height="15" rx="2" />
+    <path d="M285 87 V93 M293 87 V95 M301 87 V93 M309 87 V95 M317 87 V93 M325 87 V95" />
+  </g>
+
+  <!-- Diploma Scroll with Ribbon Seal -->
+  <g transform="rotate(-15 45 175)">
+    <rect x="25" y="166" width="44" height="16" rx="3" />
+    <path d="M47 182 L43 194 M49 182 L53 194" />
+    <circle cx="48" cy="182" r="3" fill="#ffffff" />
+  </g>
+
+  <!-- Desk Clock / School Bell -->
+  <circle cx="135" cy="172" r="13" />
+  <path d="M135 165 V172 L140 176" />
+  <path d="M131 156 L139 156" />
+
+  <!-- Globe / World Map -->
+  <circle cx="220" cy="172" r="14" />
+  <path d="M206 172 H234" />
+  <path d="M220 158 V186" />
+  <path d="M210 164 Q220 172 230 164" />
+  <path d="M210 180 Q220 172 230 180" />
+  <path d="M220 186 V194 M212 194 H228" />
+
+  <!-- Star / Academic Distinction -->
+  <polygon points="300,160 304,169 314,169 306,175 309,184 300,178 291,184 294,175 286,169 296,169" />
+
+  <!-- Mathematical Formula -->
+  <text x="24" y="248" font-family="'Times New Roman', serif" font-style="italic" font-size="13" font-weight="600" fill="#ffffff" stroke="none">E = mc²</text>
+
+  <!-- Geometry Radical / Pi -->
+  <path d="M112 250 L117 250 L121 256 L127 238 H145" />
+  <text x="130" y="250" font-family="'Times New Roman', serif" font-size="12" fill="#ffffff" stroke="none">πr²</text>
+
+  <!-- Lightbulb / Idea -->
+  <path d="M212 242 Q206 232 216 226 Q226 222 230 232 Q230 239 224 243 V248 H214 V243 Z" />
+  <path d="M216 251 H222" />
+
+  <!-- Trophy Cup -->
+  <path d="M285 232 H313 V245 Q313 257 299 257 Q285 257 285 245 Z" />
+  <path d="M299 257 V266 M291 266 H307" />
+  <path d="M285 236 H279 Q279 247 285 247" />
+  <path d="M313 236 H319 Q319 247 313 247" />
+
+  <!-- Musical Notes -->
+  <circle cx="40" cy="326" r="3.5" />
+  <circle cx="58" cy="320" r="3.5" />
+  <path d="M43.5 326 V306 L61.5 300 V320" />
+  <path d="M43.5 311 L61.5 305" />
+
+  <!-- Painter's Palette & Brush -->
+  <path d="M125 318 Q120 298 140 298 Q160 298 160 318 Q160 332 145 332 Q135 332 133 325 Q131 321 125 318 Z" />
+  <circle cx="132" cy="308" r="1.5" fill="#ffffff" />
+  <circle cx="142" cy="305" r="1.5" fill="#ffffff" />
+  <circle cx="150" cy="311" r="1.5" fill="#ffffff" />
+
+  <!-- Abacus Counting Frame -->
+  <rect x="204" y="302" width="34" height="22" rx="2" />
+  <path d="M204 309 H238 M204 317 H238" />
+  <circle cx="212" cy="309" r="2" fill="#ffffff" />
+  <circle cx="226" cy="309" r="2" fill="#ffffff" />
+  <circle cx="220" cy="317" r="2" fill="#ffffff" />
+
+  <!-- Alphabet ABC & Math 123 Blocks -->
+  <rect x="288" y="304" width="16" height="16" rx="2" />
+  <text x="292" y="316" font-family="'Helvetica Neue', Arial, sans-serif" font-weight="bold" font-size="11" fill="#ffffff" stroke="none">A</text>
+  <rect x="306" y="312" width="16" height="16" rx="2" />
+  <text x="311" y="324" font-family="'Helvetica Neue', Arial, sans-serif" font-weight="bold" font-size="11" fill="#ffffff" stroke="none">1</text>
+</svg>

@@ -1,0 +1,36 @@
+{
+  "name": "lksk-school-backend",
+  "version": "1.0.0",
+  "description": "Production REST API for L.K.S.K Convent School",
+  "main": "src/server.js",
+  "type": "commonjs",
+  "scripts": {
+    "start": "node src/server.js",
+    "dev": "nodemon src/server.js",
+    "test": "node tests/verify-backend.js && node tests/verify-auth.js && node tests/verify-cms.js && node tests/verify-phase8.js && node tests/verify-phase11-security.js",
+    "test:auth": "node tests/verify-auth.js",
+    "test:cms": "node tests/verify-cms.js",
+    "test:phase8": "node tests/verify-phase8.js",
+    "test:security": "node tests/verify-phase11-security.js",
+    "seed:admin": "node src/scripts/seedAdmin.js"
+  },
+  "dependencies": {
+    "bcryptjs": "^3.0.3",
+    "compression": "^1.8.2",
+    "cors": "^2.8.5",
+    "dotenv": "^16.4.7",
+    "express": "^4.21.2",
+    "express-rate-limit": "^7.5.0",
+    "helmet": "^8.0.0",
+    "jsonwebtoken": "^9.0.3",
+    "mongoose": "^8.9.5",
+    "morgan": "^1.10.0",
+    "nodemailer": "^10.0.13"
+  },
+  "devDependencies": {
+    "nodemon": "^3.1.9"
+  },
+  "engines": {
+    "node": ">=18.0.0"
+  }
+}

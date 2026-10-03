@@ -1,0 +1,233 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="robots" content="noindex, nofollow" />
+  <title>Admin Login | L.K.S.K Convent School</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet" />
+  <link rel="icon" type="image/svg+xml" href="/assets/branding/svg%20logo.svg" />
+  <link rel="stylesheet" href="../src/css/style.css" />
+</head>
+<body class="min-h-screen bg-slate-900 text-slate-100 flex flex-col justify-between selection:bg-blue-600 selection:text-white">
+
+  <!-- Top Security Header Bar -->
+  <header class="w-full border-b border-slate-800 bg-slate-950/60 backdrop-blur px-4 py-3">
+    <div class="max-w-7xl mx-auto flex items-center justify-between">
+      <a href="/" class="flex items-center space-x-3 text-slate-300 hover:text-white transition-colors text-xs font-medium">
+        <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+          <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10 19l-7-7m0 0l7-7m-7 7h18"></path>
+        </svg>
+        <span>Return to Public Portal</span>
+      </a>
+      <div class="flex items-center space-x-2 text-xs text-slate-400">
+        <span class="inline-block w-2 h-2 rounded-full bg-emerald-500"></span>
+        <span class="font-mono">Security Level: Production RBAC</span>
+      </div>
+    </div>
+  </header>
+
+  <!-- Login Card Container -->
+  <main class="flex-grow flex items-center justify-center px-4 py-12">
+    <div class="w-full max-w-md">
+      
+      <!-- Institutional Branding -->
+      <div class="text-center mb-8">
+        <div class="inline-flex items-center justify-center p-3 bg-slate-800/80 rounded-2xl border border-slate-700 shadow-xl mb-4">
+          <img src="/assets/branding/new%20logo%20transparent.png" alt="L.K.S.K Convent School Crest" class="h-16 w-auto object-contain" />
+        </div>
+        <h1 class="text-xl sm:text-2xl font-bold tracking-tight text-white">L.K.S.K Convent School</h1>
+        <p class="text-xs text-slate-400 mt-1 uppercase tracking-wider font-semibold">Administrative Access Gateway</p>
+      </div>
+
+      <!-- Card -->
+      <div class="bg-slate-800/90 rounded-2xl border border-slate-700/80 shadow-2xl p-6 sm:p-8 backdrop-blur">
+        
+        <!-- Status Alert Container -->
+        <div id="alert-banner" class="hidden mb-6 p-4 rounded-xl text-xs sm:text-sm border" role="alert">
+          <div class="flex items-start gap-3">
+            <div id="alert-icon" class="flex-shrink-0 mt-0.5"></div>
+            <div id="alert-message" class="flex-grow"></div>
+          </div>
+        </div>
+
+        <form id="admin-login-form" class="space-y-5" novalidate>
+          
+          <!-- Username or Email Field -->
+          <div>
+            <label for="usernameOrEmail" class="block text-xs font-semibold uppercase tracking-wider text-slate-300 mb-2">
+              Username or Official Email
+            </label>
+            <div class="relative">
+              <div class="absolute inset-y-0 left-0 pl-3.5 flex items-center pointer-events-none text-slate-400">
+                <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                  <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M16 7a4 4 0 11-8 0 4 4 0 018 0zM12 14a7 7 0 00-7 7h14a7 7 0 00-7-7z"></path>
+                </svg>
+              </div>
+              <input
+                id="usernameOrEmail"
+                name="usernameOrEmail"
+                type="text"
+                autocomplete="username"
+                required
+                placeholder="lavpandey or admin email"
+                class="w-full pl-10 pr-4 py-2.5 bg-slate-900/90 border border-slate-700 rounded-lg text-sm text-white placeholder-slate-500 focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-transparent transition-all"
+              />
+            </div>
+          </div>
+
+          <!-- Password Field with Visibility Toggle -->
+          <div>
+            <div class="flex justify-between items-center mb-2">
+              <label for="password" class="block text-xs font-semibold uppercase tracking-wider text-slate-300">
+                Password
+              </label>
+            </div>
+            <div class="relative">
+              <div class="absolute inset-y-0 left-0 pl-3.5 flex items-center pointer-events-none text-slate-400">
+                <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                  <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 15v2m-6 4h12a2 2 0 002-2v-6a2 2 0 00-2-2H6a2 2 0 00-2 2v6a2 2 0 002 2zm10-10V7a4 4 0 00-8 0v4h8z"></path>
+                </svg>
+              </div>
+              <input
+                id="password"
+                name="password"
+                type="password"
+                autocomplete="current-password"
+                required
+                placeholder="Enter administrator password"
+                class="w-full pl-10 pr-10 py-2.5 bg-slate-900/90 border border-slate-700 rounded-lg text-sm text-white placeholder-slate-500 focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-transparent transition-all"
+              />
+              <button
+                type="button"
+                id="toggle-password"
+                aria-label="Toggle password visibility"
+                class="absolute inset-y-0 right-0 pr-3.5 flex items-center text-slate-400 hover:text-slate-200 transition-colors focus:outline-none"
+              >
+                <svg id="eye-icon" class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                  <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 12a3 3 0 11-6 0 3 3 0 016 0z"></path>
+                  <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M2.458 12C3.732 7.943 7.523 5 12 5c4.478 0 8.268 2.943 9.542 7-1.274 4.057-5.064 7-9.542 7-4.477 0-8.268-2.943-9.542-7z"></path>
+                </svg>
+              </button>
+            </div>
+          </div>
+
+          <!-- Submit Button -->
+          <button
+            type="submit"
+            id="login-submit-btn"
+            class="w-full flex items-center justify-center py-2.5 px-4 bg-school-blue hover:bg-blue-600 active:bg-blue-700 text-white font-semibold rounded-lg transition-colors focus:outline-none focus:ring-2 focus:ring-blue-500 focus:ring-offset-2 focus:ring-offset-slate-800 shadow-md text-sm mt-2 disabled:opacity-50 disabled:cursor-not-allowed"
+          >
+            <span id="btn-text" class="flex items-center gap-2">
+              <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M11 16l-4-4m0 0l4-4m-4 4h14m-5 4v1a3 3 0 01-3 3H6a3 3 0 01-3-3V7a3 3 0 013-3h7a3 3 0 013 3v1"></path>
+              </svg>
+              Authenticate Securely
+            </span>
+          </button>
+        </form>
+
+        <!-- Security Disclaimer -->
+        <div class="mt-6 pt-5 border-t border-slate-700/60 text-center">
+          <p class="text-[11px] text-slate-400 leading-relaxed">
+            Authorized administrative personnel only. Failed login attempts are logged and subject to automated rate limiting and account lockout.
+          </p>
+        </div>
+      </div>
+    </div>
+  </main>
+
+  <!-- Footer -->
+  <footer class="w-full border-t border-slate-800/80 py-4 text-center text-xs text-slate-500">
+    <p>L.K.S.K Convent School &copy; 2017&ndash;2026. Lead Developer: <a href="https://www.instagram.com/lav._.pandeyy/" target="_blank" rel="noopener noreferrer" class="text-amber-400 hover:text-white hover:underline transition-colors" title="Follow Lav Pandey on Instagram">Lav Pandey</a>.</p>
+  </footer>
+
+  <!-- Admin Login Logic Script -->
+  <script type="module">
+    import { AdminAuth } from '../src/js/adminAuth.js';
+
+    document.addEventListener('DOMContentLoaded', async () => {
+      // If already authenticated and verified by backend, redirect immediately to dashboard shell
+      if (AdminAuth.isAuthenticated()) {
+        const verified = await AdminAuth.verifySession();
+        if (verified) {
+          window.location.replace('/admin/index.html');
+          return;
+        }
+      }
+
+      const form = document.getElementById('admin-login-form');
+      const submitBtn = document.getElementById('login-submit-btn');
+      const btnText = document.getElementById('btn-text');
+      const alertBanner = document.getElementById('alert-banner');
+      const alertMessage = document.getElementById('alert-message');
+      const alertIcon = document.getElementById('alert-icon');
+      const togglePasswordBtn = document.getElementById('toggle-password');
+      const passwordInput = document.getElementById('password');
+
+      // Password visibility toggle
+      togglePasswordBtn?.addEventListener('click', () => {
+        const isPassword = passwordInput.getAttribute('type') === 'password';
+        passwordInput.setAttribute('type', isPassword ? 'text' : 'password');
+      });
+
+      function showAlert(type, message) {
+        alertBanner.className = type === 'error'
+          ? 'mb-6 p-4 rounded-xl text-xs sm:text-sm border bg-rose-950/50 border-rose-800 text-rose-200'
+          : 'mb-6 p-4 rounded-xl text-xs sm:text-sm border bg-emerald-950/50 border-emerald-800 text-emerald-200';
+
+        alertIcon.innerHTML = type === 'error'
+          ? '<svg class="w-4 h-4 text-rose-400" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 9v2m0 4h.01m-6.938 4h13.856c1.54 0 2.502-1.667 1.732-3L13.732 4c-.77-1.333-2.694-1.333-3.464 0L3.34 16c-.77 1.333.192 3 1.732 3z"></path></svg>'
+          : '<svg class="w-4 h-4 text-emerald-400" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path></svg>';
+
+        alertMessage.textContent = message;
+        alertBanner.classList.remove('hidden');
+      }
+
+      form.addEventListener('submit', async (e) => {
+        e.preventDefault();
+        alertBanner.classList.add('hidden');
+
+        const usernameOrEmail = form.usernameOrEmail.value.trim();
+        const password = form.password.value;
+
+        if (!usernameOrEmail || !password) {
+          showAlert('error', 'Please enter both username/email and password.');
+          return;
+        }
+
+        submitBtn.disabled = true;
+        btnText.innerHTML = '<span class="inline-block w-4 h-4 border-2 border-white/30 border-t-white rounded-full animate-spin"></span> Verifying Credentials...';
+
+        try {
+          const response = await fetch('/api/auth/login', {
+            method: 'POST',
+            headers: { 'Content-Type': 'application/json' },
+            body: JSON.stringify({ usernameOrEmail, password }),
+          });
+
+          const data = await response.json();
+
+          if (response.ok && data.success && data.data?.token) {
+            AdminAuth.setAuth(data.data.token, data.data.admin);
+            showAlert('success', 'Authentication verified. Redirecting to administration dashboard...');
+            setTimeout(() => {
+              window.location.replace('/admin/index.html');
+            }, 500);
+          } else {
+            // Generic error message - no exposure of specific user existence
+            showAlert('error', data.message || 'Invalid credentials. Please verify your credentials.');
+          }
+        } catch (err) {
+          showAlert('error', 'Unable to reach authentication service. Please check your network connection.');
+        } finally {
+          submitBtn.disabled = false;
+          btnText.innerHTML = '<svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M11 16l-4-4m0 0l4-4m-4 4h14m-5 4v1a3 3 0 01-3 3H6a3 3 0 01-3-3V7a3 3 0 013-3h7a3 3 0 013 3v1"></path></svg> Authenticate Securely';
+        }
+      });
+    });
+  </script>
+</body>
+</html>

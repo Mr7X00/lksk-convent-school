@@ -1,0 +1,1274 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  :root {
+    /* Radiant Gradient Tokens */
+    --color-navy-950: #0b0f19;
+    --color-navy-900: #1e1b4b;
+    --color-navy-800: #312e81;
+    --color-navy-700: #4338ca;
+    --color-blue-700: #2563eb;
+    --color-blue-600: #38bdf8;
+    --color-gold-600: #d97706;
+    --color-gold-500: #f59e0b;
+    --color-gold-400: #fde047;
+    --color-surface-bg: #090d16;
+    --color-surface-card: #ffffff;
+    --color-surface-parchment: #f8fafc;
+    
+    /* Typography: Plus Jakarta Sans (Primary Modern Geometric Sans), Outfit & Cormorant Garamond Serif */
+    --font-sans: 'Plus Jakarta Sans', 'Outfit', 'Inter', system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+    --font-serif: 'Cormorant Garamond', 'Merriweather', Georgia, Cambria, serif;
+
+    /* Focus ring */
+    --ring-focus: 0 0 0 2px #ffffff, 0 0 0 4px #8b5cf6;
+  }
+
+  html {
+    scroll-behavior: smooth;
+    -webkit-tap-highlight-color: transparent;
+    text-rendering: optimizeLegibility;
+    font-size: 16px;
+  }
+
+  body {
+    background-color: #090d16;
+    background-image: url('/assets/patterns/school-doodle-pattern-dark.svg');
+    background-repeat: repeat;
+    background-size: 360px 360px;
+    background-attachment: fixed;
+    color: #f8fafc;
+    font-family: var(--font-sans);
+    font-size: 1rem; /* Clear 16px base font size */
+    font-weight: 550; /* Noticeably bolder base text */
+    line-height: 1.65;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+  }
+
+  /* Academic Classic Headings - Extra Bold, Large & Clear */
+  h1, h2, h3, h4, h5, h6 {
+    font-weight: 800 !important;
+    line-height: 1.25;
+    letter-spacing: -0.02em;
+  }
+
+  /* Make paragraphs crisp, bolder, larger, and ultra readable */
+  p {
+    font-weight: 550;
+    line-height: 1.7;
+  }
+
+  /* Bolder navigation and label elements */
+  span, label, a, button {
+    font-weight: 600;
+  }
+
+  /* Universal High-Contrast Overrides for Dark Themed Backgrounds */
+  .theme-section .text-school-slate-700:not(#about-principal *):not(#about-manager *),
+  .theme-section .text-school-slate-600:not(#about-principal *):not(#about-manager *),
+  .theme-section .text-school-slate-500:not(#about-principal *):not(#about-manager *),
+  .theme-section .text-school-slate-400:not(#about-principal *):not(#about-manager *) {
+    color: #e2e8f0 !important;
+    font-weight: 550 !important;
+  }
+
+  .theme-section .text-school-navy:not(#about-principal *):not(#about-manager *) {
+    color: #ffffff !important;
+    font-weight: 800 !important;
+  }
+
+  /* CRITICAL: High-Contrast Dark Typography inside White Principal & Manager Cards */
+  #about-principal,
+  #about-manager,
+  .theme-section #about-principal,
+  .theme-section #about-manager {
+    background-color: #ffffff !important;
+    color: #0f172a !important;
+  }
+
+  #about-principal h2,
+  #about-principal h3,
+  #about-principal h4,
+  #about-manager h2,
+  #about-manager h3,
+  #about-manager h4,
+  .theme-section #about-principal h2,
+  .theme-section #about-principal h3,
+  .theme-section #about-principal h4,
+  .theme-section #about-manager h2,
+  .theme-section #about-manager h3,
+  .theme-section #about-manager h4,
+  .theme-section #about-principal .text-school-navy,
+  .theme-section #about-manager .text-school-navy {
+    color: #0c2340 !important;
+    font-weight: 800 !important;
+  }
+
+  #about-principal p,
+  #about-manager p,
+  .theme-section #about-principal p,
+  .theme-section #about-manager p,
+  .theme-section #about-principal .text-school-slate-800,
+  .theme-section #about-manager .text-school-slate-800 {
+    color: #0f172a !important;
+    font-weight: 600 !important;
+    line-height: 1.7 !important;
+  }
+
+  #about-principal .text-school-slate-500,
+  #about-principal .text-school-slate-600,
+  #about-manager .text-school-slate-500,
+  #about-manager .text-school-slate-600,
+  .theme-section #about-principal .text-school-slate-500,
+  .theme-section #about-manager .text-school-slate-500 {
+    color: #334155 !important;
+    font-weight: 700 !important;
+  }
+
+  #about-principal .text-school-blue,
+  .theme-section #about-principal .text-school-blue {
+    color: #0369a1 !important;
+    font-weight: 800 !important;
+  }
+
+  #about-manager .text-school-gold,
+  .theme-section #about-manager .text-school-gold {
+    color: #b45309 !important;
+    font-weight: 800 !important;
+  }
+
+  .theme-section address {
+    color: #f8fafc !important;
+    font-weight: 550 !important;
+    font-size: 0.9375rem !important;
+  }
+
+  .theme-section a.text-school-blue,
+  .theme-section .text-school-blue:not(#about-principal *):not(#about-manager *) {
+    color: #38bdf8 !important;
+    font-weight: 600 !important;
+  }
+
+  .theme-section a.text-school-blue:hover {
+    color: #7dd3fc !important;
+  }
+
+  .theme-section .text-school-gold:not(#about-principal *):not(#about-manager *) {
+    color: #fbbf24 !important;
+    font-weight: 700 !important;
+  }
+
+  /* Keyboard accessible focus rings */
+  :focus-visible {
+    outline: 2px solid #8b5cf6;
+    outline-offset: 2px;
+  }
+
+  a:focus-visible, button:focus-visible, input:focus-visible, select:focus-visible, textarea:focus-visible {
+    box-shadow: var(--ring-focus);
+    outline: none !important;
+  }
+}
+
+@layer components {
+  /* Restrained Academic Buttons */
+  .btn-academic-primary {
+    @apply inline-flex items-center justify-center px-5 py-2.5 bg-school-navy text-white text-sm font-semibold rounded-academic border border-school-navy-900 transition-colors duration-200 hover:bg-school-navy-700 active:bg-school-navy-900 focus-visible:ring-2 focus-visible:ring-school-blue focus-visible:ring-offset-2 disabled:opacity-50 disabled:cursor-not-allowed shadow-subtle;
+  }
+
+  .btn-academic-secondary {
+    @apply inline-flex items-center justify-center px-5 py-2.5 bg-white text-school-navy text-sm font-semibold rounded-academic border border-school-slate-300 transition-colors duration-200 hover:bg-school-slate-100 hover:border-school-slate-400 active:bg-school-slate-200 focus-visible:ring-2 focus-visible:ring-school-blue focus-visible:ring-offset-2 disabled:opacity-50 disabled:cursor-not-allowed shadow-subtle;
+  }
+
+  .btn-academic-gold {
+    @apply inline-flex items-center justify-center px-5 py-2.5 bg-school-gold text-white text-sm font-semibold rounded-academic border border-school-gold-600 transition-colors duration-200 hover:bg-school-gold-600 active:bg-school-gold-700 focus-visible:ring-2 focus-visible:ring-school-gold-400 focus-visible:ring-offset-2 disabled:opacity-50 disabled:cursor-not-allowed shadow-subtle;
+  }
+
+  .btn-academic-outline {
+    @apply inline-flex items-center justify-center px-5 py-2.5 bg-transparent text-school-blue text-sm font-semibold rounded-academic border border-school-blue transition-colors duration-200 hover:bg-school-blue hover:text-white active:bg-school-blue-800 focus-visible:ring-2 focus-visible:ring-school-blue focus-visible:ring-offset-2 disabled:opacity-50 disabled:cursor-not-allowed;
+  }
+
+  .btn-academic-sm {
+    @apply px-3.5 py-1.5 text-xs;
+  }
+
+  .btn-academic-lg {
+    @apply px-6 py-3 text-base;
+  }
+
+  /* Academic Institutional Cards with Disciplined Padding & Margin */
+  .academic-card {
+    @apply bg-white rounded-2xl border border-slate-200/90 shadow-md transition-all duration-200 hover:shadow-xl hover:-translate-y-0.5;
+  }
+
+  .content-card {
+    @apply bg-white rounded-2xl border border-slate-200/90 shadow-md p-6 sm:p-8 mb-6 sm:mb-8 transition-all duration-200 hover:shadow-xl;
+  }
+
+  /* Standardized Page Layout Sectors */
+  .page-header-sector {
+    @apply relative border-b-2 border-school-gold/40 shadow-md;
+  }
+
+  .page-content-sector {
+    @apply py-8 sm:py-12;
+  }
+
+  /* Academic Section Divider */
+  .academic-divider {
+    @apply w-12 h-1 bg-school-gold rounded-full;
+  }
+
+  /* Data Table Standardized Padding */
+  .academic-table th {
+    @apply px-4 py-3 sm:px-6 sm:py-4 text-left font-bold text-xs uppercase tracking-wider bg-slate-100 text-school-navy border-b border-slate-200;
+  }
+  .academic-table td {
+    @apply px-4 py-3.5 sm:px-6 sm:py-4 text-xs sm:text-sm text-slate-700 border-b border-slate-100;
+  }
+
+  /* Form Input Standardized Padding */
+  .academic-input {
+    @apply w-full px-4 py-3 text-sm rounded-xl border border-slate-300 bg-white text-slate-800 placeholder-slate-400 focus:border-school-blue focus:ring-2 focus:ring-school-blue/30 outline-none transition-all;
+  }
+
+  /* Skip Link for Keyboard Accessibility */
+  .skip-to-content {
+    @apply sr-only focus:not-sr-only focus:fixed focus:top-3 focus:left-3 focus:z-50 focus:px-4 focus:py-2 focus:bg-school-navy focus:text-white focus:font-semibold focus:rounded-academic focus:shadow-modal focus:ring-2 focus:ring-white;
+  }
+}
+
+/* ============================================================ */
+/* FLOATING STUDY MATERIALS & DECORATIVE ANIMATIONS */
+/* ============================================================ */
+@keyframes float-slow {
+  0%, 100% {
+    transform: translateY(0px) rotate(0deg);
+  }
+  50% {
+    transform: translateY(-14px) rotate(3deg);
+  }
+}
+
+@keyframes float-reverse {
+  0%, 100% {
+    transform: translateY(0px) rotate(0deg);
+  }
+  50% {
+    transform: translateY(12px) rotate(-4deg);
+  }
+}
+
+@keyframes float-drift {
+  0%, 100% {
+    transform: translate(0px, 0px) rotate(0deg);
+  }
+  33% {
+    transform: translate(8px, -10px) rotate(2deg);
+  }
+  66% {
+    transform: translate(-6px, -18px) rotate(-2deg);
+  }
+}
+
+.animate-float-slow {
+  animation: float-slow 7s ease-in-out infinite;
+}
+
+.animate-float-reverse {
+  animation: float-reverse 6s ease-in-out infinite;
+}
+
+.animate-float-drift {
+  animation: float-drift 9s ease-in-out infinite;
+}
+
+/* ============================================================ */
+/* CIRCULAR BRANDED LOADER ANIMATIONS */
+/* ============================================================ */
+@keyframes spin-circle-loader {
+  0% {
+    transform: rotate(0deg);
+  }
+  100% {
+    transform: rotate(360deg);
+  }
+}
+
+@keyframes spin-reverse-circle {
+  0% {
+    transform: rotate(360deg);
+  }
+  100% {
+    transform: rotate(0deg);
+  }
+}
+
+.animate-spin-slow {
+  animation: spin-circle-loader 3.5s linear infinite;
+}
+
+.animate-spin-reverse-slow {
+  animation: spin-reverse-circle 4.5s linear infinite;
+}
+
+.loader-glow-ring {
+  box-shadow: 0 0 40px rgba(245, 158, 11, 0.45), 0 0 80px rgba(56, 189, 248, 0.2), inset 0 0 25px rgba(56, 189, 248, 0.25);
+}
+
+/* ============================================================ */
+/* SMOOTH SCROLL REVEAL ANIMATIONS */
+/* ============================================================ */
+.reveal-on-scroll {
+  opacity: 0;
+  transform: translateY(28px);
+  transition: opacity 0.7s cubic-bezier(0.16, 1, 0.3, 1), transform 0.7s cubic-bezier(0.16, 1, 0.3, 1);
+  will-change: opacity, transform;
+}
+
+.reveal-on-scroll.reveal-fade-down {
+  transform: translateY(-28px);
+}
+
+.reveal-on-scroll.reveal-slide-left {
+  transform: translateX(-36px);
+}
+
+.reveal-on-scroll.reveal-slide-right {
+  transform: translateX(36px);
+}
+
+.reveal-on-scroll.reveal-zoom-in {
+  transform: scale(0.92);
+}
+
+.reveal-on-scroll.reveal-scale-up {
+  transform: translateY(20px) scale(0.95);
+}
+
+.reveal-on-scroll.is-revealed {
+  opacity: 1 !important;
+  transform: translate(0, 0) scale(1) !important;
+}
+
+/* Top Scroll Progress Indicator */
+#scroll-progress-bar {
+  position: fixed;
+  top: 0;
+  left: 0;
+  height: 3px;
+  background: linear-gradient(90deg, #f59e0b, #fbbf24, #38bdf8);
+  z-index: 9999;
+  transition: width 0.1s ease-out;
+  pointer-events: none;
+  box-shadow: 0 0 10px rgba(245, 158, 11, 0.7);
+}
+
+/* ============================================================ */
+/* NAVBAR THEME & DROPDOWN MICRO-ANIMATIONS */
+/* ============================================================ */
+.site-header {
+  background: linear-gradient(135deg, rgba(15, 23, 42, 0.98) 0%, rgba(30, 27, 75, 0.98) 50%, rgba(49, 46, 129, 0.98) 100%) !important;
+  backdrop-filter: blur(16px);
+  -webkit-backdrop-filter: blur(16px);
+  border-bottom: 2px solid rgba(139, 92, 246, 0.45) !important;
+  box-shadow: 0 8px 32px -4px rgba(15, 23, 42, 0.85), inset 0 -1px 0 rgba(167, 139, 250, 0.3);
+}
+
+.site-header.shadow-md {
+  background: linear-gradient(135deg, rgba(10, 15, 30, 0.99) 0%, rgba(20, 18, 55, 0.99) 50%, rgba(35, 30, 95, 0.99) 100%) !important;
+  border-bottom-color: rgba(167, 139, 250, 0.6) !important;
+  box-shadow: 0 14px 40px -4px rgba(10, 15, 30, 0.95);
+}
+
+/* Nav Link Buttons: Cursor Hover & Color Change */
+.nav-link-btn {
+  position: relative;
+  display: inline-flex;
+  align-items: center;
+  color: #ffffff !important;
+  font-weight: 600 !important;
+  border-radius: 0.625rem;
+  transition: all 0.24s cubic-bezier(0.16, 1, 0.3, 1);
+  border: 1px solid transparent;
+}
+
+.nav-link-btn:hover {
+  color: #ffffff !important;
+  background: linear-gradient(135deg, rgba(139, 92, 246, 0.35) 0%, rgba(56, 189, 248, 0.2) 100%) !important;
+  border-color: rgba(167, 139, 250, 0.5);
+  box-shadow: 0 4px 18px rgba(139, 92, 246, 0.35);
+  transform: translateY(-1.5px);
+  text-shadow: 0 0 10px rgba(167, 139, 250, 0.8);
+}
+
+.nav-link-btn.is-active {
+  color: #ffffff !important;
+  background: rgba(139, 92, 246, 0.3) !important;
+  border-color: rgba(167, 139, 250, 0.6);
+  font-weight: 700 !important;
+}
+
+/* Bottom Animated Iridescent Indicator */
+.nav-link-btn::after {
+  content: '';
+  position: absolute;
+  bottom: 2px;
+  left: 50%;
+  width: 0;
+  height: 2.5px;
+  background: linear-gradient(90deg, #38bdf8, #a855f7, #ec4899);
+  transition: all 0.26s cubic-bezier(0.16, 1, 0.3, 1);
+  transform: translateX(-50%);
+  border-radius: 9999px;
+  opacity: 0;
+}
+
+.nav-link-btn:hover::after,
+.nav-link-btn.is-active::after {
+  width: 70%;
+  opacity: 1;
+  box-shadow: 0 0 10px rgba(168, 85, 247, 0.9);
+}
+
+/* Nav Dropdown Chevron Hover Animation */
+.dropdown-chevron {
+  transition: transform 0.28s cubic-bezier(0.16, 1, 0.3, 1), color 0.2s ease;
+  color: #a855f7;
+}
+
+.nav-dropdown-trigger:hover .dropdown-chevron {
+  color: #38bdf8;
+  filter: drop-shadow(0 0 6px rgba(56, 189, 248, 0.8));
+}
+
+/* Dropdown Container & Pop-Down Animation */
+@keyframes dropdown-pop-down {
+  0% {
+    opacity: 0;
+    transform: translateY(12px) scale(0.96);
+  }
+  70% {
+    transform: translateY(-2px) scale(1.008);
+  }
+  100% {
+    opacity: 1;
+    transform: translateY(0) scale(1);
+  }
+}
+
+.nav-dropdown-menu.block {
+  animation: dropdown-pop-down 0.24s cubic-bezier(0.16, 1, 0.3, 1) forwards;
+}
+
+/* Dropdown Box: Deep Cosmic Slate & Royal Violet Accents */
+.dropdown-box {
+  background: linear-gradient(175deg, #1e1b4b 0%, #0f172a 60%, #020617 100%) !important;
+  backdrop-filter: blur(18px);
+  -webkit-backdrop-filter: blur(18px);
+  border: 1px solid rgba(139, 92, 246, 0.4);
+  border-top: 3px solid #a855f7;
+  border-radius: 0.875rem;
+  box-shadow: 0 25px 50px -10px rgba(2, 6, 23, 0.9), 0 0 25px rgba(139, 92, 246, 0.25);
+  overflow: hidden;
+}
+
+/* Dropdown Items: Color Shift, Glow & Slide Effect */
+.dropdown-item {
+  color: #f1f5f9 !important;
+  padding: 0.65rem 1rem;
+  font-size: 0.8125rem;
+  font-weight: 600 !important;
+  border-left: 3.5px solid transparent;
+  transition: all 0.22s cubic-bezier(0.16, 1, 0.3, 1);
+  display: block;
+}
+
+.dropdown-item:hover {
+  background: linear-gradient(90deg, rgba(139, 92, 246, 0.35) 0%, rgba(56, 189, 248, 0.15) 100%) !important;
+  color: #ffffff !important;
+  border-left-color: #38bdf8 !important;
+  transform: translateX(5px);
+  text-shadow: 0 0 8px rgba(56, 189, 248, 0.6);
+}
+
+/* Dropdown Scrollbar Customization */
+.dropdown-box::-webkit-scrollbar {
+  width: 5px;
+}
+.dropdown-box::-webkit-scrollbar-track {
+  background: rgba(15, 23, 42, 0.6);
+}
+.dropdown-box::-webkit-scrollbar-thumb {
+  background: rgba(139, 92, 246, 0.5);
+  border-radius: 4px;
+}
+.dropdown-box::-webkit-scrollbar-thumb:hover {
+  background: rgba(168, 85, 247, 0.85);
+}
+
+/* Header Admission CTA Button: Sunset Rose & Amber Gradient */
+.btn-navbar-cta {
+  background: linear-gradient(135deg, #7c3aed 0%, #db2777 50%, #ea580c 100%) !important;
+  color: #ffffff !important;
+  font-weight: 800 !important;
+  border: 1px solid rgba(255, 255, 255, 0.35);
+  box-shadow: 0 4px 16px rgba(219, 39, 119, 0.45);
+  transition: all 0.24s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.btn-navbar-cta:hover {
+  background: linear-gradient(135deg, #8b5cf6 0%, #ec4899 50%, #f97316 100%) !important;
+  box-shadow: 0 6px 24px rgba(236, 72, 153, 0.7);
+  transform: translateY(-1.5px) scale(1.02);
+}
+
+/* ============================================================ */
+/* MOBILE DRAWER THEME & MICRO-INTERACTIONS */
+/* ============================================================ */
+.mobile-drawer-panel {
+  background: linear-gradient(180deg, #0f172a 0%, #1e1b4b 50%, #090d16 100%) !important;
+  border-left: 2px solid rgba(139, 92, 246, 0.5) !important;
+  box-shadow: -15px 0 45px rgba(2, 6, 23, 0.9);
+  color: #f8fafc;
+}
+
+.mobile-drawer-header {
+  background: linear-gradient(135deg, rgba(30, 27, 75, 0.98) 0%, rgba(15, 23, 42, 0.98) 100%) !important;
+  border-bottom: 1px solid rgba(139, 92, 246, 0.35) !important;
+}
+
+.mobile-nav-link {
+  color: #f8fafc;
+  font-weight: 600 !important;
+  border-radius: 0.75rem;
+  transition: all 0.22s cubic-bezier(0.16, 1, 0.3, 1);
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.mobile-nav-link:hover,
+.mobile-nav-link:active {
+  color: #ffffff !important;
+  background: linear-gradient(90deg, rgba(139, 92, 246, 0.3) 0%, rgba(56, 189, 248, 0.1) 100%) !important;
+  border-left: 3.5px solid #a855f7;
+  padding-left: 1rem;
+}
+
+.mobile-submenu-box {
+  background: rgba(15, 23, 42, 0.85) !important;
+  border: 1px solid rgba(139, 92, 246, 0.3) !important;
+  border-radius: 0.75rem;
+}
+
+.mobile-submenu-item {
+  color: #e2e8f0;
+  font-weight: 600 !important;
+  border-radius: 0.5rem;
+  transition: all 0.2s ease;
+  border-left: 2.5px solid transparent;
+}
+
+.mobile-submenu-item:hover,
+.mobile-submenu-item:active {
+  color: #ffffff !important;
+  background: rgba(139, 92, 246, 0.3) !important;
+  border-left-color: #38bdf8;
+  transform: translateX(4px);
+}
+
+/* ============================================================ */
+/* SECTION-BY-SECTION DISTINCT GRADIENT COLOR THEMES */
+/* ============================================================ */
+
+.theme-section {
+  position: relative;
+  overflow: hidden;
+}
+
+.theme-section::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background-image: url('/assets/patterns/school-doodle-pattern-dark.svg');
+  background-repeat: repeat;
+  background-size: 360px 360px;
+  background-attachment: fixed;
+  opacity: 0.085;
+  pointer-events: none;
+  z-index: 1;
+}
+
+.theme-section > *:not(.absolute) {
+  position: relative;
+  z-index: 2;
+}
+
+.theme-section > .absolute {
+  position: absolute !important;
+  z-index: 1;
+}
+
+/* 1. SECTION: About Us (Deep Forest Emerald & Mint Jade Gradient) */
+.section-theme-emerald {
+  background: linear-gradient(160deg, #022c22 0%, #064e3b 35%, #047857 70%, #022c22 100%) !important;
+  color: #ffffff !important;
+  border-bottom: 2px solid rgba(16, 185, 129, 0.35) !important;
+}
+
+.section-theme-emerald h2:not(#about-principal *):not(#about-manager *),
+.section-theme-emerald h3:not(#about-principal *):not(#about-manager *),
+.section-theme-emerald h4:not(#about-principal *):not(#about-manager *) {
+  color: #ffffff !important;
+  font-weight: 800 !important;
+}
+
+.section-theme-emerald p:not(#about-principal *):not(#about-manager *) {
+  color: #e2e8f0 !important;
+  font-weight: 550 !important;
+}
+
+.section-theme-emerald .academic-card {
+  background: rgba(6, 78, 59, 0.6) !important;
+  backdrop-filter: blur(14px);
+  -webkit-backdrop-filter: blur(14px);
+  border: 1px solid rgba(52, 211, 153, 0.35) !important;
+  color: #ffffff !important;
+}
+
+/* Bulletproof High-Contrast Dark Text for Principal and Manager Desk Cards (White Cards) */
+#about-principal,
+#about-manager,
+.executive-card-desk {
+  background-color: #ffffff !important;
+  background: #ffffff !important;
+  color: #0f172a !important;
+}
+
+#about-principal h3,
+#about-manager h3,
+.executive-card-desk h3 {
+  color: #0c2340 !important;
+  font-weight: 800 !important;
+  text-shadow: none !important;
+}
+
+#about-principal p,
+#about-manager p,
+.executive-card-desk p {
+  color: #0f172a !important;
+  text-shadow: none !important;
+}
+
+#about-principal .quote-box,
+#about-manager .quote-box {
+  background-color: #f8fafc !important;
+}
+
+#about-manager .quote-box {
+  background-color: #fffbeb !important;
+}
+
+#about-principal .quote-message,
+#about-manager .quote-message {
+  color: #0f172a !important;
+  font-weight: 600 !important;
+  font-size: 0.9375rem !important;
+  line-height: 1.625 !important;
+  text-shadow: none !important;
+}
+
+#about-principal .designation-title,
+#about-manager .designation-title {
+  color: #334155 !important;
+  font-weight: 700 !important;
+  text-shadow: none !important;
+}
+
+#about-principal .campus-title {
+  color: #0284c7 !important;
+  font-weight: 700 !important;
+  text-shadow: none !important;
+}
+
+#about-manager .campus-title {
+  color: #b45309 !important;
+  font-weight: 700 !important;
+  text-shadow: none !important;
+}
+
+#about-principal .desk-footer-text,
+#about-manager .desk-footer-text {
+  color: #475569 !important;
+  font-weight: 600 !important;
+  text-shadow: none !important;
+}
+
+#about-principal a,
+#about-principal a span {
+  color: #0284c7 !important;
+  font-weight: 700 !important;
+}
+
+#about-manager a,
+#about-manager a span {
+  color: #b45309 !important;
+  font-weight: 700 !important;
+}
+
+/* 2. SECTION: Campus Facilities (Royal Sapphire & Cobalt Blue Gradient) */
+.section-theme-sapphire {
+  background: linear-gradient(160deg, #071739 0%, #1e3a8a 35%, #1d4ed8 70%, #0b192c 100%) !important;
+  color: #ffffff !important;
+  border-bottom: 2px solid rgba(59, 130, 246, 0.35) !important;
+}
+
+.section-theme-sapphire h2,
+.section-theme-sapphire h3,
+.section-theme-sapphire h4 {
+  color: #ffffff !important;
+  font-weight: 800 !important;
+}
+
+.section-theme-sapphire p {
+  color: #e2e8f0 !important;
+  font-weight: 550 !important;
+}
+
+.section-theme-sapphire .dense-photo-card {
+  background: rgba(15, 23, 42, 0.85) !important;
+  border: 1px solid rgba(96, 165, 250, 0.35) !important;
+  box-shadow: 0 10px 30px -5px rgba(2, 6, 23, 0.6) !important;
+}
+
+.section-theme-sapphire .dense-photo-card:hover {
+  border-color: rgba(96, 165, 250, 0.8) !important;
+  box-shadow: 0 16px 35px -5px rgba(2, 6, 23, 0.8), 0 0 25px rgba(59, 130, 246, 0.35) !important;
+}
+
+/* 3. SECTION: Statistics & Milestones (Sunset Amethyst & Vivid Magenta Gradient) */
+.section-theme-amethyst {
+  background: linear-gradient(135deg, #3b0764 0%, #6b21a8 35%, #9333ea 65%, #c026d3 85%, #be185d 100%) !important;
+  color: #ffffff !important;
+  border-top: 2px solid rgba(192, 38, 211, 0.4) !important;
+  border-bottom: 2px solid rgba(219, 39, 119, 0.4) !important;
+}
+
+.section-theme-amethyst [data-counter-target] {
+  color: #ffffff !important;
+  font-weight: 900 !important;
+  text-shadow: 0 4px 16px rgba(0, 0, 0, 0.45);
+}
+
+.section-theme-amethyst p {
+  color: #fce7f3 !important;
+  font-weight: 700 !important;
+  letter-spacing: 0.05em;
+}
+
+/* 4. SECTION: Video Tour (Cyber Obsidian & Deep Glowing Teal Gradient) */
+.section-theme-cyber-teal {
+  background: linear-gradient(160deg, #021a1a 0%, #042f2e 40%, #0f766e 75%, #021517 100%) !important;
+  color: #ffffff !important;
+  border-bottom: 2px solid rgba(20, 184, 166, 0.35) !important;
+}
+
+.section-theme-cyber-teal h2,
+.section-theme-cyber-teal h3 {
+  color: #ffffff !important;
+  font-weight: 800 !important;
+}
+
+.section-theme-cyber-teal p {
+  color: #ccfbf1 !important;
+  font-weight: 550 !important;
+}
+
+.section-theme-cyber-teal #school-video-wrapper {
+  border: 2px solid rgba(45, 212, 191, 0.5) !important;
+  box-shadow: 0 0 40px rgba(20, 184, 166, 0.35), 0 25px 50px -12px rgba(0, 0, 0, 0.8) !important;
+}
+
+/* 5. SECTION: School Corner (Royal Wine & Velvet Plum Gradient) */
+.section-theme-plum {
+  background: linear-gradient(160deg, #2e1065 0%, #4a044e 40%, #581c87 75%, #1e1b4b 100%) !important;
+  color: #ffffff !important;
+  border-bottom: 2px solid rgba(168, 85, 247, 0.35) !important;
+}
+
+.section-theme-plum h2,
+.section-theme-plum h3 {
+  color: #ffffff !important;
+  font-weight: 800 !important;
+}
+
+.section-theme-plum p {
+  color: #f3e8ff !important;
+  font-weight: 550 !important;
+}
+
+.section-theme-plum .academic-card {
+  background: rgba(30, 27, 75, 0.75) !important;
+  backdrop-filter: blur(14px);
+  -webkit-backdrop-filter: blur(14px);
+  border: 1px solid rgba(192, 132, 252, 0.35) !important;
+  color: #ffffff !important;
+}
+
+.section-theme-plum .academic-card:hover {
+  border-color: rgba(236, 72, 153, 0.65) !important;
+  box-shadow: 0 16px 35px -5px rgba(15, 5, 30, 0.8), 0 0 25px rgba(192, 132, 252, 0.3) !important;
+}
+
+/* 6. SECTION: Testimonials (Deep Oceanic Marine & Arctic Cyan Gradient) */
+.section-theme-ocean {
+  background: linear-gradient(160deg, #082f49 0%, #0369a1 40%, #0284c7 75%, #071e33 100%) !important;
+  color: #ffffff !important;
+  border-bottom: 2px solid rgba(14, 165, 233, 0.35) !important;
+}
+
+.section-theme-ocean h2,
+.section-theme-ocean h3,
+.section-theme-ocean h4 {
+  color: #ffffff !important;
+  font-weight: 800 !important;
+}
+
+.section-theme-ocean p {
+  color: #e0f2fe !important;
+  font-weight: 550 !important;
+}
+
+.section-theme-ocean .academic-card {
+  background: rgba(8, 47, 73, 0.8) !important;
+  backdrop-filter: blur(14px);
+  -webkit-backdrop-filter: blur(14px);
+  border: 1px solid rgba(56, 189, 248, 0.35) !important;
+  color: #ffffff !important;
+}
+
+/* 7. SECTION: Gallery Preview (Aurora Night & Iridescent Indigo Gradient) */
+.section-theme-aurora {
+  background: linear-gradient(160deg, #090d16 0%, #0f172a 40%, #1e1b4b 75%, #050811 100%) !important;
+  color: #ffffff !important;
+  border-bottom: 2px solid rgba(99, 102, 241, 0.35) !important;
+}
+
+.section-theme-aurora h2,
+.section-theme-aurora h3 {
+  color: #ffffff !important;
+  font-weight: 800 !important;
+}
+
+.section-theme-aurora p {
+  color: #e2e8f0 !important;
+  font-weight: 550 !important;
+}
+
+/* 8. SECTION: Achievements & Toppers (Imperial Onyx & Stately Gold Gradient) */
+.section-theme-gold-onyx {
+  background: linear-gradient(160deg, #18181b 0%, #27272a 45%, #3f3f46 75%, #18181b 100%) !important;
+  color: #ffffff !important;
+  border-bottom: 2px solid rgba(234, 179, 8, 0.4) !important;
+}
+
+.section-theme-gold-onyx h2,
+.section-theme-gold-onyx h3 {
+  color: #ffffff !important;
+  font-weight: 800 !important;
+}
+
+.section-theme-gold-onyx p {
+  color: #f4f4f5 !important;
+  font-weight: 550 !important;
+}
+
+.section-theme-gold-onyx .academic-card {
+  background: rgba(39, 39, 42, 0.85) !important;
+  backdrop-filter: blur(14px);
+  -webkit-backdrop-filter: blur(14px);
+  border: 1px solid rgba(234, 179, 8, 0.45) !important;
+  color: #ffffff !important;
+}
+
+/* 9. SECTION: Admissions CTA (Midnight Royal Sapphire & Academic Gold) */
+.section-theme-sunrise-gradient {
+  background: radial-gradient(circle at 85% 15%, rgba(245, 158, 11, 0.18) 0%, transparent 45%),
+              radial-gradient(circle at 15% 85%, rgba(56, 189, 248, 0.15) 0%, transparent 45%),
+              linear-gradient(135deg, #061226 0%, #0a254a 35%, #0f386d 70%, #07172e 100%) !important;
+  color: #ffffff !important;
+  border-top: 2px solid rgba(245, 158, 11, 0.35) !important;
+  border-bottom: 2px solid rgba(245, 158, 11, 0.35) !important;
+  position: relative;
+}
+
+.section-theme-sunrise-gradient h2,
+.section-theme-sunrise-gradient h3 {
+  color: #ffffff !important;
+  font-weight: 800 !important;
+  text-shadow: 0 4px 20px rgba(0, 0, 0, 0.6);
+}
+
+.section-theme-sunrise-gradient p {
+  color: #cbd5e1 !important;
+  font-weight: 500 !important;
+}
+
+/* Ensure secondary buttons inside admissions CTA have crisp high-contrast visibility */
+#admissions-cta .btn-academic-secondary,
+.section-theme-sunrise-gradient .btn-academic-secondary {
+  color: #0c2340 !important;
+  background-color: #ffffff !important;
+  border-color: #cbd5e1 !important;
+  font-weight: 700 !important;
+}
+
+#admissions-cta .btn-academic-secondary span,
+.section-theme-sunrise-gradient .btn-academic-secondary span {
+  color: #0c2340 !important;
+  font-weight: 700 !important;
+}
+
+/* 10. SECTION: Contact & Location (Deep Twilight Slate & Royal Indigo Gradient) */
+.section-theme-twilight {
+  background: linear-gradient(160deg, #0a0f1d 0%, #0f172a 45%, #1e1b4b 80%, #030712 100%) !important;
+  color: #ffffff !important;
+}
+
+.section-theme-twilight h2 {
+  color: #ffffff !important;
+  font-weight: 800 !important;
+}
+
+.section-theme-twilight h3 {
+  color: #ffffff !important;
+  font-size: 1.05rem !important;
+  font-weight: 800 !important;
+}
+
+.section-theme-twilight p {
+  color: #e2e8f0 !important;
+  font-size: 0.9375rem !important;
+  font-weight: 550 !important;
+}
+
+.section-theme-twilight address {
+  color: #f1f5f9 !important;
+  font-size: 0.9375rem !important;
+  font-weight: 550 !important;
+  line-height: 1.6 !important;
+}
+
+.section-theme-twilight .contact-item-title {
+  color: #ffffff !important;
+  font-size: 1.05rem !important;
+  font-weight: 800 !important;
+}
+
+.section-theme-twilight .contact-item-desc {
+  color: #f1f5f9 !important;
+  font-size: 0.9375rem !important;
+  font-weight: 550 !important;
+}
+
+.section-theme-twilight a.contact-email-link {
+  color: #38bdf8 !important;
+  font-weight: 700 !important;
+  font-size: 0.9375rem !important;
+  text-decoration: underline;
+}
+
+.section-theme-twilight a.contact-email-link:hover {
+  color: #7dd3fc !important;
+}
+
+/* Contact Form Card on Twilight Section */
+.section-theme-twilight .academic-card {
+  background: rgba(15, 23, 42, 0.9) !important;
+  backdrop-filter: blur(20px) !important;
+  -webkit-backdrop-filter: blur(20px) !important;
+  border: 1.5px solid rgba(139, 92, 246, 0.45) !important;
+  border-radius: 1.25rem !important;
+  box-shadow: 0 25px 60px -12px rgba(2, 6, 23, 0.95), 0 0 35px rgba(139, 92, 246, 0.2) !important;
+  color: #ffffff !important;
+}
+
+.section-theme-twilight .academic-card h3 {
+  color: #ffffff !important;
+  font-size: 1.25rem !important;
+  font-weight: 800 !important;
+}
+
+.section-theme-twilight .academic-card p {
+  color: #cbd5e1 !important;
+  font-size: 0.875rem !important;
+  font-weight: 550 !important;
+}
+
+.section-theme-twilight label {
+  color: #f8fafc !important;
+  font-size: 0.875rem !important;
+  font-weight: 700 !important;
+  margin-bottom: 0.35rem;
+  display: block;
+}
+
+.section-theme-twilight input,
+.section-theme-twilight textarea,
+.section-theme-twilight select {
+  background: rgba(30, 41, 59, 0.92) !important;
+  border: 1.5px solid rgba(148, 163, 184, 0.35) !important;
+  color: #ffffff !important;
+  font-size: 0.9375rem !important;
+  font-weight: 600 !important;
+  border-radius: 0.625rem !important;
+  padding: 0.65rem 0.85rem !important;
+}
+
+.section-theme-twilight input::placeholder,
+.section-theme-twilight textarea::placeholder {
+  color: #94a3b8 !important;
+  font-weight: 500 !important;
+}
+
+.section-theme-twilight input:focus,
+.section-theme-twilight textarea:focus,
+.section-theme-twilight select:focus {
+  border-color: #38bdf8 !important;
+  box-shadow: 0 0 0 3px rgba(56, 189, 248, 0.25) !important;
+  outline: none !important;
+}
+
+/* Map Card */
+.section-theme-twilight .map-box-card {
+  background: rgba(15, 23, 42, 0.88) !important;
+  backdrop-filter: blur(14px) !important;
+  -webkit-backdrop-filter: blur(14px) !important;
+  border: 1.5px solid rgba(139, 92, 246, 0.4) !important;
+  border-radius: 1.25rem !important;
+  box-shadow: 0 15px 35px -5px rgba(2, 6, 23, 0.8) !important;
+  color: #ffffff !important;
+}
+
+.section-theme-twilight .map-box-card p.map-title {
+  color: #ffffff !important;
+  font-size: 0.9375rem !important;
+  font-weight: 800 !important;
+}
+
+.section-theme-twilight .map-box-card p.map-desc {
+  color: #e2e8f0 !important;
+  font-size: 0.8125rem !important;
+  font-weight: 600 !important;
+}
+
+/* ============================================================ */
+/* EDUCATIONAL MATERIAL ANIMATIONS */
+/* ============================================================ */
+@keyframes study-spin-slow {
+  from {
+    transform: rotate(0deg);
+  }
+  to {
+    transform: rotate(360deg);
+  }
+}
+
+@keyframes study-pulse-glow {
+  0%, 100% {
+    transform: scale(1);
+    opacity: 0.35;
+    filter: drop-shadow(0 0 6px rgba(20, 184, 166, 0.4));
+  }
+  50% {
+    transform: scale(1.1);
+    opacity: 0.85;
+    filter: drop-shadow(0 0 16px rgba(20, 184, 166, 0.85));
+  }
+}
+
+@keyframes study-bob-rotate {
+  0%, 100% {
+    transform: translateY(0px) rotate(0deg);
+  }
+  33% {
+    transform: translateY(-12px) rotate(5deg);
+  }
+  66% {
+    transform: translateY(-6px) rotate(-5deg);
+  }
+}
+
+.animate-study-spin {
+  animation: study-spin-slow 24s linear infinite;
+}
+
+.animate-study-glow {
+  animation: study-pulse-glow 4s ease-in-out infinite;
+}
+
+.animate-study-bob {
+  animation: study-bob-rotate 8s ease-in-out infinite;
+}
+
+/* Photo Card Dense Elevation & Smooth Zoom */
+.dense-photo-card {
+  position: relative;
+  overflow: hidden;
+  border-radius: 1rem;
+  border: 1px solid rgba(20, 184, 166, 0.25);
+  box-shadow: 0 10px 25px -5px rgba(2, 30, 30, 0.12);
+  transition: all 0.35s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.dense-photo-card:hover {
+  transform: translateY(-4px);
+  border-color: rgba(20, 184, 166, 0.65);
+  box-shadow: 0 16px 35px -5px rgba(2, 30, 30, 0.25), 0 0 20px rgba(20, 184, 166, 0.25);
+}
+
+.dense-photo-card img {
+  transition: transform 0.6s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.dense-photo-card:hover img {
+  transform: scale(1.08);
+}
+
+/* WhatsApp Doodle Wallpaper Utility Classes */
+.whatsapp-doodle-bg {
+  background-color: #f8fafc;
+  background-image: url('/assets/patterns/school-doodle-pattern.svg');
+  background-repeat: repeat;
+  background-size: 360px 360px;
+  background-attachment: fixed;
+}
+
+.whatsapp-doodle-dark {
+  background-color: #021e1e;
+  background-image: url('/assets/patterns/school-doodle-pattern-dark.svg');
+  background-repeat: repeat;
+  background-size: 360px 360px;
+  background-attachment: fixed;
+}
+
+/* Hide breadcrumbs site-wide per user request */
+nav[aria-label="Breadcrumb"] {
+  display: none !important;
+}
+
+/* ============================================================ */
+/* SKELETON LOADING SYSTEM (Pulse & Shimmer Animation) */
+/* ============================================================ */
+
+@keyframes skeleton-shimmer {
+  0% {
+    background-position: -200% 0;
+  }
+  100% {
+    background-position: 200% 0;
+  }
+}
+
+.skeleton-shimmer {
+  background: linear-gradient(
+    90deg,
+    rgba(226, 232, 240, 0.7) 0%,
+    rgba(248, 250, 252, 1) 50%,
+    rgba(226, 232, 240, 0.7) 100%
+  );
+  background-size: 200% 100%;
+  animation: skeleton-shimmer 1.8s ease-in-out infinite;
+}
+
+.skeleton-shimmer-dark {
+  background: linear-gradient(
+    90deg,
+    rgba(255, 255, 255, 0.06) 0%,
+    rgba(255, 255, 255, 0.18) 50%,
+    rgba(255, 255, 255, 0.06) 100%
+  );
+  background-size: 200% 100%;
+  animation: skeleton-shimmer 1.8s ease-in-out infinite;
+}
+
+.skeleton-card {
+  position: relative;
+  overflow: hidden;
+  border-radius: 1rem;
+  border: 1px solid rgba(226, 232, 240, 0.8);
+  background: #ffffff;
+}
+
+.skeleton-card-dark {
+  position: relative;
+  overflow: hidden;
+  border-radius: 1rem;
+  border: 1px solid rgba(255, 255, 255, 0.15);
+  background: rgba(255, 255, 255, 0.05);
+  backdrop-filter: blur(10px);
+  -webkit-backdrop-filter: blur(10px);
+}
+
+.skeleton-box {
+  border-radius: 0.5rem;
+}
+
+.skeleton-circle {
+  border-radius: 9999px;
+}
+
+
+/* Continuous WhatsApp Floating & Pulse Animation */
+@keyframes wa-continuous-float {
+  0%, 100% {
+    transform: translateY(0px) scale(1);
+  }
+  50% {
+    transform: translateY(-7px) scale(1.04);
+  }
+}
+
+@keyframes wa-pulse-ring {
+  0% {
+    transform: scale(0.95);
+    opacity: 0.75;
+  }
+  70% {
+    transform: scale(1.4);
+    opacity: 0;
+  }
+  100% {
+    transform: scale(0.95);
+    opacity: 0;
+  }
+}
+
+.animate-wa-float {
+  animation: wa-continuous-float 3s ease-in-out infinite;
+}
+
+.animate-wa-ring {
+  animation: wa-pulse-ring 2.2s cubic-bezier(0, 0, 0.2, 1) infinite;
+}
+
+/* Accessibility: Respect prefers-reduced-motion */
+@media (prefers-reduced-motion: reduce) {
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+    scroll-behavior: auto !important;
+  }
+  .reveal-on-scroll {
+    opacity: 1 !important;
+    transform: none !important;
+    transition: none !important;
+  }
+}
