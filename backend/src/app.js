@@ -90,8 +90,15 @@ app.use(
   })
 );
 
+// Production Unified Static Frontend Serving (serve static assets before API security filters)
+const frontendDistPath = path.resolve(__dirname, '../../frontend/dist');
+if (process.env.NODE_ENV === 'production' && fs.existsSync(frontendDistPath)) {
+  app.use(express.static(frontendDistPath));
+}
+
 // Cross-Origin Resource Sharing (CORS) Hardening
 const allowedOrigins = [
+  'https://lksk-convent-school.onrender.com',
   process.env.CLIENT_ORIGIN || 'http://localhost:5173',
   'http://127.0.0.1:5173',
   'http://localhost:5174',
@@ -124,18 +131,23 @@ app.use(
   cors({
     origin: (origin, callback) => {
       // Allow requests with no origin (e.g. mobile apps, curl, server-to-server, same-origin)
-      if (!origin || allowedOrigins.includes(origin)) {
+      if (!origin) {
         return callback(null, true);
       }
 
       // Automatically allow all *.onrender.com deployments
-      if (/^https?:\/\/[a-zA-Z0-9-]+\.onrender\.com$/.test(origin)) {
+      if (origin.includes('onrender.com')) {
+        return callback(null, true);
+      }
+
+      // Allow configured origins
+      if (allowedOrigins.some((o) => o && origin.toLowerCase() === o.toLowerCase())) {
         return callback(null, true);
       }
 
       if (isProduction) {
         logSecurityEvent('CORS_ORIGIN_REJECTED', { origin });
-        return callback(new Error('Cross-Origin Request Blocked by CORS Policy'), false);
+        return callback(null, false);
       }
 
       // Permissive during local development for developer convenience
@@ -193,11 +205,8 @@ app.get('/api/info', (req, res) => {
   });
 });
 
-// Production Unified Static Frontend Serving (e.g. Render Web Service)
-const frontendDistPath = path.resolve(__dirname, '../../frontend/dist');
+// Production Unified Static Frontend Fallback & SPA Serving
 if (process.env.NODE_ENV === 'production' && fs.existsSync(frontendDistPath)) {
-  app.use(express.static(frontendDistPath));
-
   app.get('*', (req, res, next) => {
     if (req.path.startsWith('/api') || req.path === '/sitemap.xml' || req.path === '/robots.txt') {
       return next();
