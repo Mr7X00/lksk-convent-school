@@ -48,18 +48,18 @@ export async function initHomepageGallery() {
               <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0zM10 7v3m0 0v3m0-3h3m-3 0H7"></path></svg>
             </span>
           </div>
-          <div class="p-4 sm:p-5 flex-1 flex flex-col justify-between">
+          <div class="p-4 sm:p-5 flex-1 flex flex-col justify-between bg-white">
             <div>
-              <p class="text-[11px] font-bold uppercase tracking-wider text-school-gold-600 mb-1">${category}</p>
-              <h3 class="text-sm sm:text-base font-bold font-serif text-school-navy group-hover:text-school-blue transition-colors leading-snug">${title}</h3>
-              <p class="text-xs text-school-slate-600 mt-2 leading-relaxed line-clamp-3">${description}</p>
+              <p class="gallery-card-category text-[11px] font-extrabold uppercase tracking-wider text-amber-700 mb-1" style="color: #b45309 !important;">${category}</p>
+              <h3 class="text-sm sm:text-base font-bold font-serif text-slate-900 group-hover:text-sky-700 transition-colors leading-snug" style="color: #0c2340 !important;">${title}</h3>
+              <p class="gallery-card-desc text-xs text-slate-700 mt-2 leading-relaxed line-clamp-3" style="color: #334155 !important;">${description}</p>
             </div>
-            <div class="mt-4 pt-3 border-t border-school-slate-100 flex items-center justify-between">
-              <a href="/gallery/?album=${encodeURIComponent(slug)}" class="inline-flex items-center text-xs font-semibold text-school-blue hover:text-school-navy group-hover:translate-x-0.5 transition-all">
+            <div class="mt-4 pt-3 border-t border-slate-100 flex items-center justify-between">
+              <a href="/gallery/?album=${encodeURIComponent(slug)}" class="inline-flex items-center text-xs font-bold text-sky-700 hover:text-sky-900 group-hover:translate-x-0.5 transition-all" style="color: #0284c7 !important;">
                 <span>Explore Album</span>
                 <svg class="w-3.5 h-3.5 ml-1" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7"></path></svg>
               </a>
-              <span class="text-[10px] text-school-slate-400 font-medium">Campus Event</span>
+              <span class="text-[10px] text-slate-500 font-medium" style="color: #64748b !important;">Campus Event</span>
             </div>
           </div>
         </article>
