@@ -98,41 +98,42 @@ export function createGenericCmsView({
     }
 
     function renderFormField(field, value = '') {
-      const safeVal = escapeHtml(String(value ?? ''));
-      if (field.type === 'textarea') {
+      const type = field.type || 'text';
+      const safeVal = (type === 'checkbox') ? '' : escapeHtml(String(value ?? ''));
+      if (type === 'textarea') {
         return `
           <div class="${field.colSpan === 2 ? 'col-span-2' : ''}">
-            <label class="block font-semibold text-slate-700 mb-1">${escapeHtml(field.label)} ${field.required ? '*' : ''}</label>
-            <textarea name="${field.name}" rows="3" ${field.required ? 'required' : ''} class="w-full px-3 py-2 border rounded-lg text-xs">${safeVal}</textarea>
+            <label class="block font-semibold text-slate-700 mb-1">${escapeHtml(field.label)} ${field.required ? '<span class="text-rose-500 font-bold">*</span>' : ''}</label>
+            <textarea name="${field.name}" rows="3" ${field.required ? 'required' : ''} class="w-full px-3 py-2 border border-slate-300 rounded-lg text-xs text-slate-800 placeholder-slate-400 focus:ring-2 focus:ring-school-blue focus:border-school-blue focus:outline-none transition-colors">${safeVal}</textarea>
           </div>
         `;
       }
-      if (field.type === 'select') {
+      if (type === 'select') {
         return `
           <div class="${field.colSpan === 2 ? 'col-span-2' : ''}">
-            <label class="block font-semibold text-slate-700 mb-1">${escapeHtml(field.label)} ${field.required ? '*' : ''}</label>
-            <select name="${field.name}" ${field.required ? 'required' : ''} class="w-full px-3 py-2 border rounded-lg text-xs">
-              ${field.options.map((opt) => `
+            <label class="block font-semibold text-slate-700 mb-1">${escapeHtml(field.label)} ${field.required ? '<span class="text-rose-500 font-bold">*</span>' : ''}</label>
+            <select name="${field.name}" ${field.required ? 'required' : ''} class="w-full px-3 py-2 border border-slate-300 rounded-lg text-xs bg-white text-slate-800 focus:ring-2 focus:ring-school-blue focus:border-school-blue focus:outline-none transition-colors">
+              ${(field.options || []).map((opt) => `
                 <option value="${escapeHtml(opt.value)}" ${value === opt.value ? 'selected' : ''}>${escapeHtml(opt.label)}</option>
               `).join('')}
             </select>
           </div>
         `;
       }
-      if (field.type === 'checkbox') {
+      if (type === 'checkbox') {
         return `
           <div class="flex items-center pt-4 ${field.colSpan === 2 ? 'col-span-2' : ''}">
-            <label class="flex items-center gap-2 font-semibold text-slate-700 cursor-pointer text-xs">
-              <input type="checkbox" name="${field.name}" ${value ? 'checked' : ''} class="rounded text-blue-600" />
-              ${escapeHtml(field.label)}
+            <label class="inline-flex items-center gap-2.5 font-semibold text-slate-700 cursor-pointer text-xs select-none">
+              <input type="checkbox" name="${field.name}" ${value ? 'checked' : ''} class="w-4 h-4 rounded text-school-blue focus:ring-school-blue border-slate-300 transition-colors cursor-pointer" />
+              <span>${escapeHtml(field.label)}</span>
             </label>
           </div>
         `;
       }
       return `
         <div class="${field.colSpan === 2 ? 'col-span-2' : ''}">
-          <label class="block font-semibold text-slate-700 mb-1">${escapeHtml(field.label)} ${field.required ? '*' : ''}</label>
-          <input type="${field.type || 'text'}" name="${field.name}" value="${safeVal}" ${field.required ? 'required' : ''} class="w-full px-3 py-2 border rounded-lg text-xs" />
+          <label class="block font-semibold text-slate-700 mb-1">${escapeHtml(field.label)} ${field.required ? '<span class="text-rose-500 font-bold">*</span>' : ''}</label>
+          <input type="${type}" name="${field.name}" value="${safeVal}" ${field.required ? 'required' : ''} class="w-full px-3 py-2 border border-slate-300 rounded-lg text-xs text-slate-800 placeholder-slate-400 focus:ring-2 focus:ring-school-blue focus:border-school-blue focus:outline-none transition-colors" />
         </div>
       `;
     }
